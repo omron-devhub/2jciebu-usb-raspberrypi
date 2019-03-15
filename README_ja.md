@@ -28,6 +28,7 @@ sample_2jciebu.py を実行するとコンソール上でセンシングデー�
 2. ターミナルを開き、次のコマンドを実行します。  
     ```
     $ mkdir omron_sensor
+    $ cd omron_sensor
     $ git clone https://github.com/omron-devhub/2jciebu-usb-raspberrypi.git
     ```
 

@@ -28,6 +28,7 @@ When you run sample_2jciebu.py, you can see the sensing data on console.
 2. Open Terminal and execute the following command.    
     ```
     $ mkdir omron_sensor
+    $ cd omron_sensor
     $ git clone https://github.com/omron-devhub/2jciebu-usb-raspberrypi.git
     ```
 
