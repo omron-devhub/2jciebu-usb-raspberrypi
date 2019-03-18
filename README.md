@@ -37,8 +37,8 @@ Procedure to operate the sample program.
 - sample_2jciebu.py  
 Open Terminal and execute the following command.  
     ```
-    $ sudo chmod 777 /sys/bus/usb-serial/drivers/ftdi_sio/new_id
     $ sudo modprobe ftdi_sio
+    $ sudo chmod 777 /sys/bus/usb-serial/drivers/ftdi_sio/new_id
     $ sudo echo 0590 00d4 > /sys/bus/usb-serial/drivers/ftdi_sio/new_id
     $ sudo python3 sample_2jciebu.py
     ```

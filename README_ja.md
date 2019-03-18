@@ -38,8 +38,8 @@ sample_2jciebu.py を実行するとコンソール上でセンシングデー�
 -  sample_2jciebu.py  
 ターミナルを開き、次のコマンドを実行します。  
     ```
-    $ sudo chmod 777 /sys/bus/usb-serial/drivers/ftdi_sio/new_id
     $ sudo modprobe ftdi_sio
+    $ sudo chmod 777 /sys/bus/usb-serial/drivers/ftdi_sio/new_id
     $ sudo echo 0590 00d4 > /sys/bus/usb-serial/drivers/ftdi_sio/new_id
     $ sudo python3 sample_2jciebu.py
     ```
