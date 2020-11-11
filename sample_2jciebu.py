@@ -9,6 +9,8 @@ DISPLAY_RULE_NORMALLY_OFF = 0
 # LED display rule. Normal On.
 DISPLAY_RULE_NORMALLY_ON = 1
 
+def s16(value):
+    return -(value & 0x8000) | (value & 0x7fff)
 
 def calc_crc(buf, length):
     """
@@ -33,7 +35,7 @@ def print_latest_data(data):
     print measured latest value.
     """
     time_measured = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
-    temperature = str(int(hex(data[9]) + '{:02x}'.format(data[8], 'x'), 16) / 100)
+    temperature = str( s16(int(hex(data[9]) + '{:02x}'.format(data[8], 'x'), 16)) / 100)
     relative_humidity = str(int(hex(data[11]) + '{:02x}'.format(data[10], 'x'), 16) / 100)
     ambient_light = str(int(hex(data[13]) + '{:02x}'.format(data[12], 'x'), 16))
     barometric_pressure = str(int(hex(data[17]) + '{:02x}'.format(data[16], 'x')
@@ -42,7 +44,7 @@ def print_latest_data(data):
     eTVOC = str(int(hex(data[21]) + '{:02x}'.format(data[20], 'x'), 16))
     eCO2 = str(int(hex(data[23]) + '{:02x}'.format(data[22], 'x'), 16))
     discomfort_index = str(int(hex(data[25]) + '{:02x}'.format(data[24], 'x'), 16) / 100)
-    heat_stroke = str(int(hex(data[27]) + '{:02x}'.format(data[26], 'x'), 16) / 100)
+    heat_stroke = str(s16(int(hex(data[27]) + '{:02x}'.format(data[26], 'x'), 16)) / 100)
     vibration_information = str(int(hex(data[28]), 16))
     si_value = str(int(hex(data[30]) + '{:02x}'.format(data[29], 'x'), 16) / 10)
     pga = str(int(hex(data[32]) + '{:02x}'.format(data[31], 'x'), 16) / 10)
